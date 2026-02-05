@@ -53,13 +53,16 @@ i)	see any of the .ini files and you will get an idea of how this works
 FAQS
 
 Question: Why when i transmog just my chest to something different does my modded armor disappear?
+
 Answer: Some armor that make up a hash to replace include multiple pieces of armor. So if you have a specific chest/gloves equipped then thats a specific hash that gets replaced (set in your .ini file). When you change either the chest or gloves, it changes the hash and thus removes your mod since the mod only replaces the specific hash.
 
 Question: When i do a frame analysis dump (F8) my resulting folder is empty!
+
 Answer: Check your d3dx.ini and make sure this line is not commented out and looks like this: analyse_options = dump_rt dump_tex dump_cb dump_vb dump_ib buf txt
 Also, it is HIGHLY RECOMMENDED to leave this commented out and create a separate mod folder to only dump specific hashes.
 
 Question: Why can't i replace models or textures for the character's face?
+
 Answer: The face is drawn alongside several other objects related to effects and map pieces. So this breaks any possible modding. IF you want to add a custom beard, it may be better to remove the beard on the character in-game and then add the custom beard on the hair itself, so the modded hair (in-game its only hairby itself) is a combination of the hair AND beard. As we can't even modify JSUT the texture of the face either.
 
 A better method is to find the hash of JUST the face and then create an .ini file to do an additional draw ON the face. So the face never gets replaced but you can add a custom beard to the face, for example. See the HumanFaceNoMustace.ini file for an example .ini that does this.
