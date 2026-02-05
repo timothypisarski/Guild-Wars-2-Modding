@@ -1,2 +1,69 @@
 # Guild-Wars-2-Modding
 Modding resources related to modding Guild Wars 2 with the 3DMigoto | SilentNightSound/GI-Model-Importer tools
+
+Tools
+ - GI-Model-Importer: https://github.com/SilentNightSound/GI-Model-Importer/releases
+ - Blender (no higher than 3.6.1) with Blender plugin blender_3dmigoto_gimi.py from above repository
+ 
+
+Steps
+1)	Unzip the contents of either 3dmigoto-GIMI-for-development.zip OR 3dmigoto-GIMI-for-playing-mods.zip into your main Guild Wars 2 directory
+a)	You’ll need the Development version if you want to extract models and create mods
+2)	Modify the d3dx.ini to at least set the target to your Guild Wars 2 executable name (Gw2-64.exe) e.g.: target = Gw2-64.exe
+a)	There are some other settings that you should ensure are changed but review the d3dx.ini file in this repository
+3)	Start Guild Wars 2, if its working (and you are using the Development version) you should see the Green text on the top and bottom of the screen
+a)	numpad 0 to hide the text for playing
+b)	Hiding it will also disable the controls for doing a frame analysis, searching buffers, etc.
+4)	If you need to find and export a piece of armor:
+a)	Go somewhere where you will be the only character
+i)	This makes it easier to search through available buffers
+5)	Ensure the Green text is displayed to be in hunting mode
+6)	See below to cycle through shaders (we usually want VB)
+a)	Pressing / and * on the numpad cycles through the Vertex Buffers (VB), which contain information on the vertices for the objects being drawn to the screen. You can copy the hash of the currently selected VB with numpad -
+b)	Pressing 7 and 8 on the numpad cycles through the Index Buffers (IB), which contain information on how vertices are connected to form the model. You can copy the hash with numpad 9
+c)	Pressing 4 and 5 on the numpad cycles through the Vertex Shaders (VS), which contain information on how vertices/faces are positioned on the screen. Use numpad 6 to copy the hash
+d)	Pressing 1 and 2 on the numpad cycles throught the Pixel Shaders (PS), which contain information on how textures and colors are applied to the objects. Use numpad 3 to copy the hash
+
+7)	Copy the hash using the numpad key next to the keys in the same row
+a)	Like the  - key for / and *
+b)	You will need this for the .ini file later
+8)	F8 to dump the screen
+a)	This can take a while and will be MASSIVE in size if you are dumping everything
+b)	IT IS HIGHLY RECOMMENDED, to create a mod that will ONLY dump the hashes you are looking for.
+i)	Create a separate folder in your Mods folder. (i.e. C:\Guild Wars 2\Mods\hashdump)
+ii)	Create an .ini in your new folder and enter lines like this to ONLY dump specific hashes:
+iii)	See my ModelExtract mod folder for ini example
+9)	This should export ALL models, textures, etc.
+10)	Make sure you copied the VB, PS, or VS and then search in Windows for this or in Blender when you import the frame analysis dump
+a)	There will be several files of the same size with similar names, you only need to import one of them in Blender, they are all the same.
+11)	Using the Blender plugin, import the VB files you need using the hash of the VB
+a)	When you import into Blender you may have multiple meshes that are all the same. You only need one of these meshes. 
+b)	Delete the rest.
+12)	Modify, add, remove what you need, ensure you add the textures in Blender so you can see how they "should" look in game
+13)	Export via the Blender plugin
+14)	Create a separate folder for just these exported pieces in the Mods folder
+15)	Place all the exported files in that newly created folder
+a)	so directory would be like ../Mods/myNewModName
+16)	Create an .ini file in the folder
+17)	Modify the .ini to point to the appropriate pieces and textures
+i)	see any of the .ini files and you will get an idea of how this works
+		(WILL WRITE SOMETHING MORE COMPREHENSIVE LATER)
+		
+
+FAQS
+
+Question: Why when i transmog just my chest to something different does my modded armor disappear?
+Answer: Some armor that make up a hash to replace include multiple pieces of armor. So if you have a specific chest/gloves equipped then thats a specific hash that gets replaced (set in your .ini file). When you change either the chest or gloves, it changes the hash and thus removes your mod since the mod only replaces the specific hash.
+
+Question: When i do a frame analysis dump (F8) my resulting folder is empty!
+Answer: Check your d3dx.ini and make sure this line is not commented out and looks like this: analyse_options = dump_rt dump_tex dump_cb dump_vb dump_ib buf txt
+Also, it is HIGHLY RECOMMENDED to leave this commented out and create a separate mod folder to only dump specific hashes.
+
+Question: Why can't i replace models or textures for the character's face?
+Answer: The face is drawn alongside several other objects related to effects and map pieces. So this breaks any possible modding. IF you want to add a custom beard, it may be better to remove the beard on the character in-game and then add the custom beard on the hair itself, so the modded hair (in-game its only hairby itself) is a combination of the hair AND beard. As we can't even modify JSUT the texture of the face either.
+
+A better method is to find the hash of JUST the face and then create an .ini file to do an additional draw ON the face. So the face never gets replaced but you can add a custom beard to the face, for example. See the HumanFaceNoMustace.ini file for an example .ini that does this.
+	
+	
+	
+Read through THIS guide for a more comprehensive process: https://github.com/SilentNightSound/GI-Model-Importer/blob/main/Guides/BananaWeaponWalkthrough.md
