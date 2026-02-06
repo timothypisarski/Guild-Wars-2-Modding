@@ -1,12 +1,12 @@
 # Guild-Wars-2-Modding
 Modding resources related to modding Guild Wars 2 with the 3DMigoto | SilentNightSound/GI-Model-Importer tools
 
-Tools
+## Tools
  - GI-Model-Importer: https://github.com/SilentNightSound/GI-Model-Importer/releases
  - Blender (no higher than 3.6.1) with Blender plugin blender_3dmigoto_gimi.py from above repository
  
 
-Steps
+## Steps
 1)	Unzip the contents of either 3dmigoto-GIMI-for-development.zip OR 3dmigoto-GIMI-for-playing-mods.zip into your main Guild Wars 2 directory
 a)	You’ll need the Development version if you want to extract models and create mods
 2)	Modify the d3dx.ini to at least set the target to your Guild Wars 2 executable name (Gw2-64.exe) e.g.: target = Gw2-64.exe
@@ -48,25 +48,55 @@ a)	so directory would be like ../Mods/myNewModName
 17)	Modify the .ini to point to the appropriate pieces and textures
 i)	see any of the .ini files and you will get an idea of how this works
 		(WILL WRITE SOMETHING MORE COMPREHENSIVE LATER)
-		
 
-FAQS
+## WHAT IS POSSIBLE | WHAT IS NOT
 
-Question: Why when i transmog just my chest to something different does my modded armor disappear?
+We can create a custom mesh with custom textures and display that on our character in place of any armor/weapon/face/hair/beard in the game. Realistically you could turn NPCs into bananas if you really wanted. 
+We can display our mods on the Client-side ONLY. 
 
-Answer: Some armor that make up a hash to replace include multiple pieces of armor. So if you have a specific chest/gloves equipped then thats a specific hash that gets replaced (set in your .ini file). When you change either the chest or gloves, it changes the hash and thus removes your mod since the mod only replaces the specific hash.
+We cannot do Skyrim level modding. We can't add new items, modify skeletons, or animations or anything really fancy.
+We cannot make are mods visible to other players.
 
-Question: When i do a frame analysis dump (F8) my resulting folder is empty!
+What this does is essentially display Model A instead of Model B. In some scenarios we can display Model A and Model B if we wanted. 
 
-Answer: Check your d3dx.ini and make sure this line is not commented out and looks like this: analyse_options = dump_rt dump_tex dump_cb dump_vb dump_ib buf txt
-Also, it is HIGHLY RECOMMENDED to leave this commented out and create a separate mod folder to only dump specific hashes.
 
-Question: Why can't i replace models or textures for the character's face?
+## FAQS
 
-Answer: The face is drawn alongside several other objects related to effects and map pieces. So this breaks any possible modding. IF you want to add a custom beard, it may be better to remove the beard on the character in-game and then add the custom beard on the hair itself, so the modded hair (in-game its only hairby itself) is a combination of the hair AND beard. As we can't even modify JSUT the texture of the face either.
+**Question: Why when i transmog just my chest to something different does my modded armor disappear?** <br>
+**Answer:** Some armor that make up a hash to replace include multiple pieces of armor. So if you have a specific chest/gloves equipped then thats a specific hash that gets replaced (set in your .ini file). When you change either the chest or gloves, it changes the hash and thus removes your mod since the mod only replaces the specific hash.
+<br>
+<br>
+**Question: When i do a frame analysis dump (F8) my resulting folder is empty!** <br>
+**Answer:** Check your d3dx.ini and make sure this line is not commented out and looks like this: <br><br>
+analyse_options = dump_rt dump_tex dump_cb dump_vb dump_ib buf txt <br><br>
+Although, it is HIGHLY RECOMMENDED to leave this commented out and create a separate mod folder to only dump specific hashes.
+<br>
+<br>
+**Question: Why can't i replace models or textures for the character's face?** <br>
+**Answer:** The face is drawn alongside several other objects related to effects and map pieces. So this breaks any possible modding. IF you want to add a custom beard, it may be better to remove the beard on the character in-game and then add the custom beard on the hair itself, so the modded hair (in-game its only hairby itself) is a combination of the hair AND beard. As we can't even modify JSUT the texture of the face either.
 
 A better method is to find the hash of JUST the face and then create an .ini file to do an additional draw ON the face. So the face never gets replaced but you can add a custom beard to the face, for example. See the HumanFaceNoMustace.ini file for an example .ini that does this.
-	
+
+
+## PREVIEWS
+
+Imported a weapon from Final Fantasy XIV
+<img width="784" height="1276" alt="screenshot1" src="https://github.com/user-attachments/assets/f11ff6d7-b9e7-4b72-9be5-04574ff4ab56" />
+
+Kitbash of heavy/medium/light armors
+![screenshot2](https://github.com/user-attachments/assets/6c868b98-d65d-4486-a96f-31086958be8a)
+
+Resized and replaced weapon model (Norn Greatsword over Shimmering Greatsword)
+![screenshot3](https://github.com/user-attachments/assets/9e97e217-b9ef-41ba-a37a-37541cb66db6)
+
+Another kitbash of heavy/medium/light armors with upscaled textures
+![screenshot4](https://github.com/user-attachments/assets/b3b1d97b-8f69-4ffe-8043-1e399d5c8f0b)
+
+
+
+
+
+
 	
 	
 Read through THIS guide for a more comprehensive process: https://github.com/SilentNightSound/GI-Model-Importer/blob/main/Guides/BananaWeaponWalkthrough.md
