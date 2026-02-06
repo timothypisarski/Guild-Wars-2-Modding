@@ -77,16 +77,17 @@ What this does is essentially display Model A instead of Model B. In some scenar
 <br>
 **Question: When i do a frame analysis dump (F8) my resulting folder is empty!** <br>
 **Answer:** Check your d3dx.ini and make sure this line is not commented out and looks like this: <br><br>
-analyse_options = dump_rt dump_tex dump_cb dump_vb dump_ib buf txt <br><br>
+`analyse_options = dump_rt dump_tex dump_cb dump_vb dump_ib buf txt` <br><br>
 Although, it is HIGHLY RECOMMENDED to leave this commented out and create a separate mod folder to only dump specific hashes.
 <br>
 <br>
-**Question: My model is completely broken in game. Vertices are stretching into infinity. Why?** <br>
+**Question: My model is completely broken in game. Vertices are stretching into infinity. Why?**
+<br>
 **Answer:** Could be multiple reasons. Some common reasons I've run into: 
-	1) Your stride set in your .ini file doesn't match the stride of the mesh you are replacing
-	2) Your stride set in Blender on the Object properties doesn't match the stride of the mesh you are replacing
-	3) Your format set in your .ini file doesn't match the format of the mesh you are replacing
-	4) Your format set in Blender on the Object properties doesn't match the format of the mesh you are replacing
+1) Your stride set in your .ini file doesn't match the stride of the mesh you are replacing
+2) Your stride set in Blender on the Object properties doesn't match the stride of the mesh you are replacing
+3) Your format set in your .ini file doesn't match the format of the mesh you are replacing
+4) Your format set in Blender on the Object properties doesn't match the format of the mesh you are replacing
 
 **Question: I want to add a custom beard or hair but can't find the hash to replace only the beard or hair. What gives?** <br>
 **Answer:** Not all but **most** of the beards (and hair for that matter) are drawn together with several other pieces of the environment. This means that you will not be able to replace only the beard/hair. It also means that when doing a Frame Analysis it will create a massive folder (in terms of size) as it dumps tons of textures and models. <br>
