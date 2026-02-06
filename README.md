@@ -93,6 +93,9 @@ Although, it is HIGHLY RECOMMENDED to leave this commented out and create a sepa
 **Answer:** Not all but **most** of the beards (and hair for that matter) are drawn together with several other pieces of the environment. This means that you will not be able to replace only the beard/hair. It also means that when doing a Frame Analysis it will create a massive folder (in terms of size) as it dumps tons of textures and models. <br>
 One way I was able to somewhat get around this is find a hair or beard model that has its own hash, meaning the hash only contains the beard/hair, and replace that instead. It is less than ideal but we are quite limited with what we are able to do.
 
+**Question: I use Reshade which also uses d3d11.dll. Can I still use mods?** <br>
+**Answer:** Yes! Make sure your Reshade .dll is named dxgi.dll and place it in the bin64/cef. It will then load along with your mods. You *may* need to repoint Reshade to where your .fx files are. I run Reshade and BlishHUD alongside of this modding tool and they all play nice together.
+
 **Question: I want a deeper dive on how to create mods.** <br>
 **Answer:** There are alot of great guides in SilentNightSound's Github repository. Look at the Guide section and read through those. They are specific to Genshin Impact but most of the principals can also be applied to modding Guild Wars 2. See here: [https://github.com/SilentNightSound/GI-Model-Importer/releases](https://github.com/SilentNightSound/GI-Model-Importer/releases)
 
