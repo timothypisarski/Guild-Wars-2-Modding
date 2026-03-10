@@ -102,17 +102,12 @@ One way I was able to somewhat get around this is find a hair or beard model tha
 
 ## PREVIEWS
 
-Imported a weapon from Final Fantasy XIV
-<img width="784" height="1276" alt="screenshot1" src="https://github.com/user-attachments/assets/f11ff6d7-b9e7-4b72-9be5-04574ff4ab56" />
-
-Kitbash of heavy/medium/light armors
-![screenshot2](https://github.com/user-attachments/assets/6c868b98-d65d-4486-a96f-31086958be8a)
-
-Resized and replaced weapon model (Norn Greatsword over Shimmering Greatsword)
-![screenshot3](https://github.com/user-attachments/assets/9e97e217-b9ef-41ba-a37a-37541cb66db6)
-
-Another kitbash of heavy/medium/light armors with upscaled textures
-![screenshot4](https://github.com/user-attachments/assets/b3b1d97b-8f69-4ffe-8043-1e399d5c8f0b)
-
+| Modded Armor Front | Modded Armor Back | Custom Greatsword |
+|-|-|-|
+| ![](images/gw003.jpg) | ![](images/gw004.jpg) | ![](images/gw005.jpg) |
+| Custom Hammer | Final Fantasy XIV Greatsword | Custom Hair |
+| ![](images/gw007.jpg) | <p align="center"><img src="images/gw008.png" width="250" height="250" style="object-fit:cover;"></p> | ![](images/gw009.jpg) |
+| Kitbashed Armor | Another Custom Greatsword | Kitbashed Armor |
+| ![](images/gw010.jpg) | ![](images/gw011.jpg) | ![](images/gw012.jpg) |
 
 
